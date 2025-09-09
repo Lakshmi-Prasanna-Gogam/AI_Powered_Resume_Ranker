@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ranked Candidates</title>
+    <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4f6f8;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 600px;
+      max-width: 90%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Ranked Candidates</h1><br><br>
+    
+    {% if results %}
+        <ol>
+            {% for resume, score in results %}
+                <li>{{ resume }} - Score: {{ score }}%</li>
+            {% endfor %}
+        </ol>
+        <a href="/download">📥 Download Report</a>
+    {% else %}
+        <p>No candidates ranked yet.</p>
+    {% endif %}
+
+    <br><a href="/">⬅️ Back to Upload</a>
+    </div>
+</body>
+</html>
